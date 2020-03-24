@@ -13,7 +13,7 @@ public class FibonacciMainLogic implements SumatorInterface  {
 
     public static void main(String[] args) {
         FibonacciMainLogic fibonacci = new FibonacciMainLogic();
-        fibonacci.run("src/liczby1.txt");
+        fibonacci.run("src/liczby2.txt");
     }
 
     @Override
@@ -22,7 +22,7 @@ public class FibonacciMainLogic implements SumatorInterface  {
             int counter = 0;
             String line;
             String[] rowValue = null;
-            List<Long> indexSum = new ArrayList<>();
+            List<BigInteger> indexSum = new ArrayList<>();
             List<BigInteger> fibonacciNumbers = new ArrayList<>();
             BufferedReader br = new BufferedReader(new FileReader(file));
 
@@ -36,7 +36,7 @@ public class FibonacciMainLogic implements SumatorInterface  {
                         counter++;
                     }
                     else // if value from last column
-                        indexSum.add(Long.parseLong(part));
+                        indexSum.add(new BigInteger(part));
                 }
                 counter = 0;
                 lineCounter++;
@@ -60,7 +60,7 @@ public class FibonacciMainLogic implements SumatorInterface  {
     }
 
     @Override
-    public void createFiboCollectionAndSumIndex(List<BigInteger> fibonacciNumbers,List<Long> indexSum) {
+    public void createFiboCollectionAndSumIndex(List<BigInteger> fibonacciNumbers,List<BigInteger> indexSum) {
         int listCounter = 1;
         int indexSumCounter = 0;
         long sum = 0;

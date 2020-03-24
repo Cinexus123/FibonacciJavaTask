@@ -4,6 +4,6 @@ import java.util.Map;
 
 public interface SumatorInterface {
     void run(String file);
-    void createFiboCollectionAndSumIndex(List<BigInteger> fibonacciNumbers, List<Long> fileNumbers);
+    void createFiboCollectionAndSumIndex(List<BigInteger> fibonacciNumbers, List<BigInteger> fileNumbers);
     Map<Integer,BigInteger> generateSpecialFibonacciCollection(BigInteger max);
 }

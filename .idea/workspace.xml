@@ -4,7 +4,6 @@
     <list default="true" id="2ee00e07-880b-47b7-bb74-05f258ead4cd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/fibonacciTask/FibonacciMainLogic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/fibonacciTask/FibonacciMainLogic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/fibonacciTask/liczby.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FibonacciMainLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FibonacciMainLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SumatorInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SumatorInterface.java" afterDir="false" />
     </list>
@@ -64,6 +63,7 @@
       <workItem from="1584908080572" duration="55000" />
       <workItem from="1584996522893" duration="3883000" />
       <workItem from="1585069050796" duration="8072000" />
+      <workItem from="1585077878971" duration="533000" />
     </task>
     <servers />
   </component>
@@ -83,22 +83,22 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="426" height="466" key="DebuggerActiveHint/0.0.1600.860@0.0.1600.860" timestamp="1584894580470" />
-    <state width="1557" height="154" key="GridCell.Tab.0.bottom" timestamp="1585077330555">
+    <state width="1557" height="154" key="GridCell.Tab.0.bottom" timestamp="1585078417828">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="154" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1585077330555" />
-    <state width="1557" height="154" key="GridCell.Tab.0.center" timestamp="1585077330555">
+    <state width="1557" height="154" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1585078417828" />
+    <state width="1557" height="154" key="GridCell.Tab.0.center" timestamp="1585078417828">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="154" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1585077330555" />
-    <state width="1557" height="154" key="GridCell.Tab.0.left" timestamp="1585077330555">
+    <state width="1557" height="154" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1585078417828" />
+    <state width="1557" height="154" key="GridCell.Tab.0.left" timestamp="1585078417828">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="154" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1585077330555" />
-    <state width="1557" height="154" key="GridCell.Tab.0.right" timestamp="1585077330555">
+    <state width="1557" height="154" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1585078417828" />
+    <state width="1557" height="154" key="GridCell.Tab.0.right" timestamp="1585078417828">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="154" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1585077330555" />
+    <state width="1557" height="154" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1585078417828" />
     <state width="1557" height="301" key="GridCell.Tab.1.bottom" timestamp="1584907463874">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -115,10 +115,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="1557" height="301" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1584907463874" />
-    <state x="501" y="254" key="com.intellij.ide.util.TipDialog" timestamp="1585069054708">
+    <state x="501" y="254" key="com.intellij.ide.util.TipDialog" timestamp="1585077929194">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="501" y="254" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1585069054708" />
+    <state x="501" y="254" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1585077929194" />
     <state x="463" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1584802923332">
       <screen x="0" y="0" width="1600" height="860" />
     </state>

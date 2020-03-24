@@ -13,7 +13,7 @@ public class FibonacciMainLogic implements SumatorInterface  {
 
     public static void main(String[] args) {
         FibonacciMainLogic fibonacci = new FibonacciMainLogic();
-        fibonacci.run("src/liczby2.txt");
+        fibonacci.run("src/liczby3.txt");
     }
 
     @Override
@@ -63,7 +63,8 @@ public class FibonacciMainLogic implements SumatorInterface  {
     public void createFiboCollectionAndSumIndex(List<BigInteger> fibonacciNumbers,List<BigInteger> indexSum) {
         int listCounter = 1;
         int indexSumCounter = 0;
-        long sum = 0;
+        int sum =0;
+        BigInteger sum1 = BigInteger.valueOf(sum);
         int doubleElements = 0;
 
         BigInteger max = Collections.max(fibonacciNumbers);
@@ -72,13 +73,13 @@ public class FibonacciMainLogic implements SumatorInterface  {
             for(BigInteger element : fibonacciNumbers)
             {
                 for(Map.Entry<Integer, BigInteger> entry: entrySet) {
-                    if(entry.getValue().equals(element))
+                    if(element.equals(entry.getValue()))
                     {
                         doubleElements++;
-                        sum += entry.getKey();
+                        sum1 = sum1.add(new BigInteger(String.valueOf(entry.getKey())));
                         if(listCounter % 2 == 0)
                         {
-                            if(indexSum.get(indexSumCounter).equals(sum) && doubleElements == 2) {
+                            if(indexSum.get(indexSumCounter).equals(sum1) && doubleElements == 2) {
                                 correctLine++;
                             }
                             break;
@@ -89,7 +90,7 @@ public class FibonacciMainLogic implements SumatorInterface  {
                 processed++;
                 if(processed % 2 == 0)
                 {
-                    sum = 0;
+                    sum1 = BigInteger.valueOf(0);
                     indexSumCounter++;
                     doubleElements = 0;
                 }

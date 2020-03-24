@@ -69,13 +69,12 @@ public class FibonacciMainLogic implements SumatorInterface  {
         BigInteger max = Collections.max(fibonacciNumbers);
         Map<Integer,BigInteger> uniqueCollection = generateSpecialFibonacciCollection(max);// set key and value collection to map
         Set<Map.Entry<Integer,BigInteger>> entrySet = uniqueCollection.entrySet();
-
             for(BigInteger element : fibonacciNumbers)
             {
-                doubleElements++;
                 for(Map.Entry<Integer, BigInteger> entry: entrySet) {
                     if(entry.getValue().equals(element))
                     {
+                        doubleElements++;
                         sum += entry.getKey();
                         if(listCounter % 2 == 0)
                         {

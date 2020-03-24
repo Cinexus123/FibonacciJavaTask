@@ -13,7 +13,7 @@ public class FibonacciMainLogic implements SumatorInterface  {
 
     public static void main(String[] args) {
         FibonacciMainLogic fibonacci = new FibonacciMainLogic();
-        fibonacci.run("src/liczby3.txt");
+        fibonacci.run("src/liczby2.txt");
     }
 
     @Override
@@ -84,6 +84,7 @@ public class FibonacciMainLogic implements SumatorInterface  {
                             }
                             break;
                         }
+                        break;
                     }
                 }
                 listCounter++;

@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.util.*;
 
 public class FibonacciMainLogic implements SumatorInterface  {
@@ -9,6 +10,7 @@ public class FibonacciMainLogic implements SumatorInterface  {
     private long lineCounter = 0;
     private long correctLine = 0;
     private long processed = 0;
+
     public static void main(String[] args) {
         FibonacciMainLogic fibonacci = new FibonacciMainLogic();
         fibonacci.run("src/liczby1.txt");
@@ -21,7 +23,7 @@ public class FibonacciMainLogic implements SumatorInterface  {
             String line;
             String[] rowValue = null;
             List<Long> indexSum = new ArrayList<>();
-            List<Long> fibonacciNumbers = new ArrayList<>();
+            List<BigInteger> fibonacciNumbers = new ArrayList<>();
             BufferedReader br = new BufferedReader(new FileReader(file));
 
             startTime = System.nanoTime();
@@ -30,7 +32,7 @@ public class FibonacciMainLogic implements SumatorInterface  {
                 for (String part : rowValue)
                 {
                     if(counter == 0 || counter == 1) { // if value from one or second column
-                        fibonacciNumbers.add(Long.parseLong(part));
+                        fibonacciNumbers.add(new BigInteger(part));
                         counter++;
                     }
                     else // if value from last column
@@ -58,59 +60,65 @@ public class FibonacciMainLogic implements SumatorInterface  {
     }
 
     @Override
-    public void createFiboCollectionAndSumIndex(List<Long> fibonacciNumbers,List<Long> indexSum) {
+    public void createFiboCollectionAndSumIndex(List<BigInteger> fibonacciNumbers,List<Long> indexSum) {
         int listCounter = 1;
-        int indexFibonacciNumbersList = 0;
         int indexSumCounter = 0;
         long sum = 0;
-        long lineCountersValue = lineCounter * 2; //multiply *2 because in one row are two values
+        int doubleElements = 0;
 
-        Long max = Collections.max(fibonacciNumbers);
-        Map<Integer,Long> uniqueCollection = generateSpecialFibonacciCollection(max);// set key and value collection to map
-        Set<Map.Entry<Integer,Long>> entrySet = uniqueCollection.entrySet();
+        BigInteger max = Collections.max(fibonacciNumbers);
+        Map<Integer,BigInteger> uniqueCollection = generateSpecialFibonacciCollection(max);// set key and value collection to map
+        Set<Map.Entry<Integer,BigInteger>> entrySet = uniqueCollection.entrySet();
 
-        while(listCounter <= lineCountersValue)
-        {
-            for(Map.Entry<Integer, Long> entry: entrySet) {
-                if(fibonacciNumbers.get(indexFibonacciNumbersList).equals(entry.getValue()))
-                {
-                    sum += entry.getKey();
-                    if(listCounter % 2 == 0)
+            for(BigInteger element : fibonacciNumbers)
+            {
+                doubleElements++;
+                for(Map.Entry<Integer, BigInteger> entry: entrySet) {
+                    if(entry.getValue().equals(element))
                     {
-                        if(indexSum.get(indexSumCounter).equals(sum)) {
-                            correctLine++;
+                        sum += entry.getKey();
+                        if(listCounter % 2 == 0)
+                        {
+                            if(indexSum.get(indexSumCounter).equals(sum) && doubleElements == 2) {
+                                correctLine++;
+                            }
+                            break;
                         }
-                        break;
                     }
                 }
+                listCounter++;
+                processed++;
+                if(processed % 2 == 0)
+                {
+                    sum = 0;
+                    indexSumCounter++;
+                    doubleElements = 0;
+                }
             }
-            indexFibonacciNumbersList++;
-            listCounter++;
-            processed++;
-            if(processed % 2 == 0)
-            {
-                sum = 0;
-                indexSumCounter++;
-            }
-        }
     }
 
-    public Map<Integer,Long> generateSpecialFibonacciCollection(Long max) {
-        long first = 0;
-        long second = 1;
-        long third = 2;
-        long temp = 0;
+    public Map<Integer,BigInteger> generateSpecialFibonacciCollection(BigInteger max) {
+        String first = "0";
+        BigInteger value = new BigInteger(String.valueOf(first));
+        String second = "1";
+        BigInteger value1 = new BigInteger(String.valueOf(second));
+        String third = "2";
+        BigInteger value2 = new BigInteger(String.valueOf(third));
+        String temp = "0";
+        BigInteger temp1 = new BigInteger(String.valueOf(temp));
         int counter = 3;
-        Map<Integer,Long> collection = new TreeMap<>();
-        collection.put(0,first);
-        collection.put(1,second);
-        collection.put(2,third);
-            while(temp < max)
+
+        Map<Integer,BigInteger> collection = new TreeMap<>();
+        collection.put(0,value);
+        collection.put(1,value1);
+        collection.put(2,value2);
+
+            while(temp1.compareTo(max) == -1 )
             {
-              temp = second + third;
-              second = third;
-              third = temp;
-              collection.put(counter,temp);
+              temp1 = value1.add(value2);
+              value1 = value2;
+              value2 = temp1;
+              collection.put(counter,temp1);
               counter++;
             }
         return collection;

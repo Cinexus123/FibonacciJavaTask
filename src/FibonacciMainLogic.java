@@ -16,7 +16,7 @@ public class FibonacciMainLogic implements SumatorInterface  {
 
     public static void main(String[] args) {
         FibonacciMainLogic fibonacci = new FibonacciMainLogic();
-        fibonacci.run("src/nowy.txt");
+        fibonacci.run("src/wowo.txt");
     }
 
     @Override
@@ -142,7 +142,6 @@ public class FibonacciMainLogic implements SumatorInterface  {
             collection.add(temp1);
             sizeGenerateValue.add(temp1.length());
         }
-
         return collection;
     }
 
@@ -161,6 +160,7 @@ public class FibonacciMainLogic implements SumatorInterface  {
 
             signTable[--biggerValue] = (char) ('0' + digit % 10);
         }
+
         for (biggerValue = 0; biggerValue < signTable.length - 1 && signTable[biggerValue] == '0'; biggerValue++) {} // remove unecessery 0 front
 
         return new String(signTable, biggerValue, signTable.length - biggerValue);

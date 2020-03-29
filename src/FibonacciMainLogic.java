@@ -71,41 +71,45 @@ public class FibonacciMainLogic implements SumatorInterface  {
 
     @Override
     public void createFiboCollectionAndSumIndex(List<String> fibonacciNumbers, List<String> indexSum, String max) {
-        int findIndexElementInGenerateList = 0;
         int counterIncomingValueElement = 0;
         int listCounter = 1;
         int indexSumCounter = 0;
         String sum = "0";
         int doubleElements = 0;
-
+        List<Integer> index = new ArrayList<>();
+        int counter = 0;
         List<String> uniqueCollection = generateSpecialFibonacciCollection(max);// set key and value collection to map
 
         for(Integer incomingNumbers : sizeIncomingValue)
         {
             doubleElements++;
-            if(sizeGenerateValue.contains(incomingNumbers))
+            for(Integer generateNumbers : sizeGenerateValue)
             {
-                for(Integer generateNumbers : sizeGenerateValue)
+                if(incomingNumbers.equals(generateNumbers))
                 {
-                        if(fibonacciNumbers.get(counterIncomingValueElement).equals(uniqueCollection.get(findIndexElementInGenerateList)))
-                        {
-                            sum = addStringNumbers(sum,String.valueOf(findIndexElementInGenerateList));
-                            if(listCounter % 2 == 0)
-                            {
-                                if(indexSum.get(indexSumCounter).equals(sum) && doubleElements == 2) {
-                                    correctLine++;
-                                }
-                                break;
-                            }
-                            break;
-                        }
-                        findIndexElementInGenerateList++;
+                    index.add(counter);
                 }
-                findIndexElementInGenerateList = 0;
+                counter++;
             }
+            for(Integer element : index)
+            {
+                if(fibonacciNumbers.get(counterIncomingValueElement).equals(uniqueCollection.get(element))) {
+                    sum = addStringNumbers(sum,String.valueOf(element));
+                    if(listCounter % 2 == 0)
+                    {
+                        if(indexSum.get(indexSumCounter).equals(sum) && doubleElements == 2) {
+                            correctLine++;
+                        }
+                        break;
+                    }
+                    break;
+                }
+            }
+            index.clear();
             listCounter++;
             processed++;
             counterIncomingValueElement++;
+            counter = 0;
 
             if(processed % 2 == 0)
             {

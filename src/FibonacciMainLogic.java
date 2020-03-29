@@ -23,7 +23,9 @@ public class FibonacciMainLogic implements SumatorInterface  {
     public void run(String file) {
         try {
             int counter = 0;
+            int biggestValue = 0;
             String line;
+            String max = null;
             String[] rowValue = null;
             List<String> indexSum = new ArrayList<>();
             List<String> fibonacciNumbers = new ArrayList<>();
@@ -38,6 +40,11 @@ public class FibonacciMainLogic implements SumatorInterface  {
                         fibonacciNumbers.add(part);
                         sizeIncomingValue.add(part.length());
                         counter++;
+                        if(biggestValue < part.length())
+                        {
+                            biggestValue = part.length();
+                            max = part;
+                        }
                     }
                     else // if value from last column
                         indexSum.add(part);
@@ -47,7 +54,6 @@ public class FibonacciMainLogic implements SumatorInterface  {
             }
             br.close();
 
-            String max = Collections.max(fibonacciNumbers);
             createFiboCollectionAndSumIndex(fibonacciNumbers, indexSum, max);
 
             long endTime = System.nanoTime();
@@ -81,8 +87,6 @@ public class FibonacciMainLogic implements SumatorInterface  {
             {
                 for(Integer generateNumbers : sizeGenerateValue)
                 {
-                    if(incomingNumbers.equals(generateNumbers))
-                    {
                         if(fibonacciNumbers.get(counterIncomingValueElement).equals(uniqueCollection.get(findIndexElementInGenerateList)))
                         {
                             sum = addStringNumbers(sum,String.valueOf(findIndexElementInGenerateList));
@@ -95,8 +99,7 @@ public class FibonacciMainLogic implements SumatorInterface  {
                             }
                             break;
                         }
-                    }
-                    findIndexElementInGenerateList++;
+                        findIndexElementInGenerateList++;
                 }
                 findIndexElementInGenerateList = 0;
             }

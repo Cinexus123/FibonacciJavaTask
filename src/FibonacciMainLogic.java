@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class FibonacciMainLogic implements SumatorInterface  {
@@ -73,7 +72,6 @@ public class FibonacciMainLogic implements SumatorInterface  {
     public void createFiboCollectionAndSumIndex(List<String> fibonacciNumbers, List<String> indexSum, String max) {
         int counterIncomingValueElement = 0;
         int listCounter = 1;
-        int indexSumCounter = 0;
         String sum = "0";
         int doubleElements = 0;
         List<Integer> index = new ArrayList<>();
@@ -82,7 +80,6 @@ public class FibonacciMainLogic implements SumatorInterface  {
 
         for(Integer incomingNumbers : sizeIncomingValue)
         {
-            doubleElements++;
             for(Integer generateNumbers : sizeGenerateValue)
             {
                 if(incomingNumbers.equals(generateNumbers))
@@ -94,12 +91,14 @@ public class FibonacciMainLogic implements SumatorInterface  {
             for(Integer element : index)
             {
                 if(fibonacciNumbers.get(counterIncomingValueElement).equals(uniqueCollection.get(element))) {
+                    doubleElements++;
                     sum = addStringNumbers(sum,String.valueOf(element));
                     if(listCounter % 2 == 0)
                     {
-                        if(indexSum.get(indexSumCounter).equals(sum) && doubleElements == 2) {
+                        if(indexSum.get(0).equals(sum) && doubleElements == 2) {
                             correctLine++;
                         }
+                        indexSum.remove(0);
                         break;
                     }
                     break;
@@ -114,7 +113,6 @@ public class FibonacciMainLogic implements SumatorInterface  {
             if(processed % 2 == 0)
             {
                 sum = "0";
-                indexSumCounter++;
                 doubleElements = 0;
             }
         }
